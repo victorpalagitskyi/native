@@ -16,7 +16,7 @@ const initialState = {
   email: "",
   password: "",
 };
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [state, setState] = useState(initialState);
   const [isHidden, setIsHidden] = useState(true);
   const [focusedField, setFocusedField] = useState("");
@@ -25,9 +25,7 @@ const LoginScreen = () => {
   //    Keyboard.dismiss
   // }
 
-  const onLogin = () => {
-    Alert.alert("Credentials", `${state.email} + ${state.password}`);
-  };
+  const onLogin = () => {};
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -55,8 +53,14 @@ const LoginScreen = () => {
           <Button
             title={"Sign In"}
             style={styles.title}
-            onPress={onLogin}
+            onPress={() => navigation.navigate("Home")}
           ></Button>
+          <Text
+            style={styles.title}
+            onPress={() => navigation.navigate("Registration")}
+          >
+            Зареєструватися
+          </Text>
         </KeyboardAvoidingView>
       </View>
     </TouchableWithoutFeedback>

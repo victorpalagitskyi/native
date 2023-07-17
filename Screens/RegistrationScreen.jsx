@@ -17,15 +17,12 @@ const initialState = {
   email: "",
   password: "",
 };
-const RegistrationScreen = () => {
+const RegistrationScreen = ({ navigation }) => {
   const [state, setState] = useState(initialState);
   const [isHidden, setIsHidden] = useState(true);
 
   const onLogin = () => {
-    Alert.alert(
-      "Credentials",
-      `${state.login} + ${state.email} + ${state.password}`
-    );
+    console.log("happy");
   };
 
   return (
@@ -62,8 +59,14 @@ const RegistrationScreen = () => {
           <Button
             title={"Register"}
             style={styles.title}
-            onPress={onLogin}
+            onPress={() => navigation.navigate("Home")}
           ></Button>
+          <Text
+            style={styles.title}
+            onPress={() => navigation.navigate("Login")}
+          >
+            Увійти
+          </Text>
         </KeyboardAvoidingView>
       </View>
     </TouchableWithoutFeedback>
